@@ -56,15 +56,15 @@ const AddNewModal = (props: IAddNewModalProps) => {
                 datetime = dt.format('DD-MM-yyyy HH:mm');
             }
         }
-        if(text !== ''){
-            handleAddNewModal({
-                id: editTodo.id !== 0 ? editTodo.id : (new Date().valueOf()),
-                text,
-                isCompleted: editTodo ? editTodo.isCompleted : false,
-                status,
-                date: datetime
-            });
-        }
+        
+        handleAddNewModal({
+            id: editTodo.id !== 0 ? editTodo.id : (new Date().valueOf()),
+            text,
+            isCompleted: editTodo ? editTodo.isCompleted : false,
+            status,
+            date: datetime
+        });
+       
         setText('');
         setStatus('Lower');
     }

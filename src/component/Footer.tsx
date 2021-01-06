@@ -6,7 +6,7 @@ const Footer = (props: IFooterProps) => {
     const { isDisplayForm, setStatusFilter, status, numberItem, isOpen } = props;
     const [isActive, setIsActive] = useState<string>('ALL');
 
-    const handlCheckAll = (sts: string) => {
+    const handleCheckAll = (sts: string) => {
         setStatusFilter(sts);
         setIsActive("ALL");
     }
@@ -20,6 +20,7 @@ const Footer = (props: IFooterProps) => {
         setStatusFilter(sts);
         setIsActive("ACTIVE");
     }
+    
     return (
         <li className={`${ isDisplayForm ? 'footer ' : 'displayform-true footer '} ${isOpen ? '' : 'collspan-isOpen-true'}`}>
             <span className="todo-count">
@@ -28,7 +29,7 @@ const Footer = (props: IFooterProps) => {
                 <span>items</span>
                 <span> left</span>
             </span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <a><span className={status === 'ALL' ? 'active': ''} onClick={() => handlCheckAll("ALL")}>All</span></a>&emsp;&emsp;
+            <a><span className={status === 'ALL' ? 'active': ''} onClick={() => handleCheckAll("ALL")}>All</span></a>&emsp;&emsp;
             <a><span className={status === 'ACTIVE' ? 'active': ''} onClick={() => handleCheckActive("ACTIVE")}>Active</span></a>&emsp;&emsp;
             <a><span className={status === 'COMPLETED' ? 'active': ''} onClick={() => handleCheckComplete("COMPLETED")}>Complete</span></a>
         </li>

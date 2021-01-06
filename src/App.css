@@ -1,6 +1,5 @@
 ul li {
   list-style: none;
-  /* margin: 0px 0; */
   padding: 10px 10px 5px 50px;
   text-transform: capitalize;
   border: 1px solid #f1f2f3;
@@ -27,21 +26,18 @@ ul {
   position: absolute;
   right: 520px;
   margin-top: 25px;
-
-  /* margin-right: 100px; */
 }
+
 .btn-display-form-false-delete {
   position: absolute;
   right: 300px;
   margin-top: 15px;
-  /* margin-right: 20px;; */
 }
+
 .btn-display-form-false-edit {
   position: absolute;
   right: 385px;
   margin-top: 15px;
-
-  /* margin-right: 1px; */
 }
 
 .span-display-form-true-status {
@@ -49,59 +45,40 @@ ul {
   position: absolute;
   right: 225px;
   margin-top: 25px;
-
-  /* margin-right: 100px; */
 }
 
 .btn-display-form-true-edit {
-  /* margin-top: 10px; */
   position: absolute;
   right: 115px;
   margin-top: 15px;
-
-  /* margin-right: 1px; */
 }
 
 .btn-display-form-true-delete {
   position: absolute;
   right: 30px;
   margin-top: 15px;
-
-  /* margin-right: 20px;; */
 }
+
 .Task__time {
   font-size: 13px;
     color: #666666;
     margin-bottom: 5px;
-    /* i {
-        margin-right: 5px;
-    } */
-}
-.checkmark {
-  position: absolute;
-  top: 35px;
-  left: 30px;
-  height: 40px;
-  width: 40px;
-  background-color: white;
-  border-radius: 20px;
-  border: 1px solid green;
 }
 
 .checkbox-true {
   left: 250px;
 }
 
-/* When the checkbox is checked, add a blue background */
 input[type="checkbox"] {
   width: 25px;
   height: 25px;
   border-radius: 16px;
-  /* visibility: hidden; */
 }
+
 .time-late {
   background: rgb(218, 179, 179);
 }
+
 .text-right {
   margin-left: 135px;
 }
@@ -119,7 +96,6 @@ h3{
 .footer {
   margin-top: -10px;
   list-style: none;
-  /* margin: 0px 0; */
   padding: 15px 10px 15px 50px;
   text-transform: capitalize;
   border: 1px solid #f1f2f3;

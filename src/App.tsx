@@ -118,22 +118,20 @@ const App = () => {
     }
 
     const filterByStatus = (todos: ITodosList[], status: string) => {
-        var result = [...todos];
         switch (status) {
           case 'ACTIVE':
-            result =  todos.filter((todo: ITodosList) => !todo.isCompleted);
+            return todos.filter((todo: ITodosList) => !todo.isCompleted);
             break;
           case 'COMPLETED':
-            result =  todos.filter((todo: ITodosList) => todo.isCompleted);
+           return  todos.filter((todo: ITodosList) => todo.isCompleted);
             break;
         case 'SEARCH':
-            result = todos.filter((todo: ITodosList) => todo.text.toLowerCase().includes(textSearch.toLowerCase()));
+            return todos.filter((todo: ITodosList) => todo.text.toLowerCase().includes(textSearch.toLowerCase()));
             break;
           default:
-            result = todos;
-            break
+            return todos;
+            break;
         }
-        return result;
     }
 
     const toggleShowAll = () => {
@@ -167,23 +165,6 @@ const App = () => {
                             onToggleForm={onToggleForm}
                             onSearch={onSearch}
                         />
-                    {/* <button 
-                        className={ isDisplayForm ? 'btn btn-primary inline-button' : 'btn btn-primary arror-colspan inline-button' } 
-                        onClick={toggleShowAll}
-                        >
-                            {isOpen ? <span className="glyphicon glyphicon-arrow-up"></span> : <span className="glyphicon glyphicon-arrow-down"></span> }
-                            
-                    </button>
-                    <button 
-                        type="button" 
-                        className={ isDisplayForm ? 'btn btn-primary inline-button' : 'btn btn-primary  btn-add-display-form-true inline-button'}
-                        onClick={ onToggleForm }>
-                        <span className="fa fa-plus mr-5"></span>Add New Task
-                    </button>
-                    <form className={ isDisplayForm ? 'form-inline-display-form-true my-2 my-lg-0 form-inline' : 'form-inline-display-form-false my-2 my-lg-0 form-inline'}>
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form> */}
                     <Collapse isOpen={isOpen}>
                         <Card>
                             <CardBody>
@@ -201,7 +182,6 @@ const App = () => {
                         isDisplayForm={isDisplayForm}
                         status={status}
                         numberItem={numberItem}
-                        // todosList={todosList}
                         setStatusFilter={setStatusFilter}
                         isOpen={isOpen}
                     />
