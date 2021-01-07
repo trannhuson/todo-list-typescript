@@ -26,12 +26,13 @@ const App = () => {
     const [numberItem, setNumberItem] = useState<number>(todosList.length);
     const [isOpen, setIsOpen] = useState<boolean>(true);
     const [textSearch, setTextSearch] = useState<string>('');
+    const [action, setAction] = useState<boolean>(false);
 
     useEffect(() => {
       callApi('getTodosList', 'GET').then((res: any) => {
         setTodosList(res.data.data);
       })
-    }, [])
+    }, [action])
 
     useEffect(() => {
         setNumberItem(filterByStatus(todosList, status).length)
@@ -65,11 +66,13 @@ const App = () => {
     const handleAddNewModal = (todo: ITodosList) => {
         if(!checkIdExist(todo.id)) {
             callApi('add/list', 'POST', todo).then((res: any) => {
-                setTodosList(res.data.data);
+                // setTodosList(res.data.data);
+                setAction(!action)
             })
         }else {
             callApi('update/list', 'PUT', todo).then((res: any) => {
-               setTodosList(res.data.data);
+            //    setTodosList(res.data.data);
+                setAction(!action)
             })
         }    
         setTaskEditing({
@@ -83,13 +86,12 @@ const App = () => {
 
     const handleDelete = (id: number) => {
         // const array = todosList.filter(t => t.id !== id);
-        // setTodosList(array);  
-        const endpoint = 'delete/:' + id;
+        const endpoint = 'delete/' + id;
+        console.log("id: ", id);
          callApi(endpoint, 'DELETE').then((res: any) => {
-            setTodosList(res.data.data);
+            setAction(!action)
         })  
     }
-
 
     const handleEditTodo = (todo: ITodosList, index: number) => {
         var taskEditing = todosList[index];
