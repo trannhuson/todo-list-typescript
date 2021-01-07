@@ -7,6 +7,7 @@ const Header = (props: IHeaderProps) => {
     const [text, setText] = useState('');
     const [status, setStatus] = useState('SEARCH');
     const { isDisplayForm, isOpen, toggleShowAll, onToggleForm, onSearch } = props;
+    
     const handleToggleShowAll = (isOpen: boolean) => {
         toggleShowAll(!isOpen);
     }

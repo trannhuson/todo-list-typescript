@@ -3,8 +3,9 @@ import axios from 'axios';
 import * as Config from '../constants/Config';
 import { ITodosList } from '../todointerface/ITodo'
 
-const callApi = (endpoint: any, method: any, body?: ITodosList) => {
-    return axios({
+const callApi = async (endpoint: any, method: any, body?: ITodosList) => {
+    console.log( body)
+    return await axios({
         method: method,
         url: `${Config.API_URL}/${endpoint}`,
         data: body

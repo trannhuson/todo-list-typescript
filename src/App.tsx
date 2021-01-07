@@ -53,30 +53,24 @@ const App = () => {
     const onShowForm = () => {
         setIsDisplayForm(true);
     }
-    const findIndex = (id: number): number => {
-        var result = -1;
-        for(var i = 0; i< todosList.length; i++){
+
+    const checkIdExist = (id: number): boolean => {
+        for(var i =  0; i < todosList.length; i++){
             if(todosList[i].id === id){
-                result = i; 
+                return true;
             }
         }
-        return result;
+        return false;
     }
     const handleAddNewModal = (todo: ITodosList) => {
-        const list = todosList;
-        const index = findIndex(todo.id);
-        if(index !== -1) {
-            list.splice(index, 1, todo);
-            setTodosList(list);
+        if(!checkIdExist(todo.id)) {
+            callApi('add/list', 'POST', todo).then((res: any) => {
+                setTodosList(res.data.data);
+            })
         }else {
-            const todos = todosList.concat({
-                id: todo.id,
-                text: todo.text,
-                isCompleted: todo.isCompleted,
-                status: todo.status,
-                date: todo.date
-            });
-            setTodosList(todos);
+            callApi('update/list', 'PUT', todo).then((res: any) => {
+               setTodosList(res.data.data);
+            })
         }    
         setTaskEditing({
           id: 0,
@@ -88,8 +82,12 @@ const App = () => {
     }
 
     const handleDelete = (id: number) => {
-        const array = todosList.filter(t => t.id !== id);
-        setTodosList(array);    
+        // const array = todosList.filter(t => t.id !== id);
+        // setTodosList(array);  
+        const endpoint = 'delete/:' + id;
+         callApi(endpoint, 'DELETE').then((res: any) => {
+            setTodosList(res.data.data);
+        })  
     }
 
 
